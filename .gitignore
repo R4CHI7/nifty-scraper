@@ -1,0 +1,6 @@
+# Virtual env files
+env/
+venv/
+
+# Configuration file
+server.conf
