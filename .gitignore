@@ -4,3 +4,6 @@ venv/
 
 # Configuration file
 server.conf
+
+# Python related files
+*.pyc
