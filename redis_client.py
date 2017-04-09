@@ -1,13 +1,10 @@
 import redis
 
-from config.config import Config
 
-
-def GetRedisClient():
+def GetRedisClient(config):
     """
     Creates a new redis connection and returns the client.
     """
-    config = Config().getConfig()
     r = redis.StrictRedis(
         host=config.get('redis', 'host'),
         port=config.get('redis', 'port'),

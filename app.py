@@ -17,7 +17,7 @@ class App(object):
         self.scraper.start()
 
         # Start the server.
-        cherrypy.quickstart(App(), '/')
+        cherrypy.quickstart(Server(), '/')
 
 
 if __name__ == '__main__':
