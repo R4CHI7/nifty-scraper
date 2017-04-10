@@ -1,3 +1,4 @@
+import os
 import cherrypy
 
 from scraper import Scraper
@@ -14,10 +15,19 @@ class App(object):
     def start(self):
         # Start the background scraper.
         cherrypy.log('Starting background scraper..')
-        self.scraper.start()
+        # self.scraper.start()
 
         # Start the server.
-        cherrypy.quickstart(Server(), '/')
+        conf = {
+            '/': {
+                'tools.staticdir.root': os.path.abspath(os.getcwd())
+            },
+            '/static': {
+                'tools.staticdir.on': True,
+                'tools.staticdir.dir': 'static'
+            }
+        }
+        cherrypy.quickstart(Server(), '/', conf)
 
 
 if __name__ == '__main__':

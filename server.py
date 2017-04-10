@@ -21,9 +21,20 @@ class Server(object):
             r = GetRedisClient(config)
             data = r.lrange(config.get('app', 'redis_key'), 0, -1)
             data = map(json.loads, data)
-            print data
+            for entry in data:
+                print entry
+                arrowClass = ''
+                color = ''
+                if entry['change'] > 0.0:
+                    arrowClass = 'fa-arrow-circle-up'
+                    color = 'green'
+                elif entry['change'] < 0.0:
+                    arrowClass = 'fa-arrow-circle-down'
+                    color = 'red'
+                entry['arrowClass'] = arrowClass
+                entry['color'] = color
             template = env.get_template('index.html')
-            return template.render()
+            return template.render(data=data)
         except Exception as e:
             cherrypy.log('Error occurred while handling request', traceback=True)
             template = env.get_template('500.html')

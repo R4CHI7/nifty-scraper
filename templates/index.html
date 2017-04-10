@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nifty Scraper</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <script type="text/javascript" src="/static/js/main.js"></script>
+  </head>
+  <body>
+    <center>
+      <h1>Nifty 50</h1>
+      {% for entry in data %}
+      <div class="card">
+        <div class="container">
+          <h4><b><script>getLocalTime({{ entry.timestamp }})</script></b></h4>
+          <p>Last Price: <b>{{ entry.lastPrice }}</b></p>
+          <p>Change:
+            <b style="color: {{ entry.color }}">{{ entry.change }}</b>
+            <span class="fa {{ entry.arrowClass }}" style="color: {{ entry.color }}"></span>
+            <b style="color: {{ entry.color }}">{{ entry.pChange }}%</b>
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </center>
+  </body>
+</html>
