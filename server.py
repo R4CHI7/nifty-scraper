@@ -22,7 +22,6 @@ class Server(object):
             data = r.lrange(config.get('app', 'redis_key'), 0, -1)
             data = map(json.loads, data)
             for entry in data:
-                print entry
                 arrowClass = ''
                 color = ''
                 if entry['change'] > 0.0:
