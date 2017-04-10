@@ -10,7 +10,7 @@ Setup
 
 2. Install requirements for the application using:
 ```sh
-    $ pip install -r requirements.txt
+    pip install -r requirements.txt
 ```
 
 3. Create a copy of `server.sample.conf` and name that file `server.conf`. Fill in the required values.
