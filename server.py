@@ -2,7 +2,7 @@ import json
 import cherrypy
 from jinja2 import Environment, PackageLoader
 
-from redis_client import GetRedisClient
+from utils.redis_client import GetRedisClient
 from config.config import Config
 
 

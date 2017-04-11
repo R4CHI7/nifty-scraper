@@ -8,7 +8,7 @@ from pytz import timezone
 import cherrypy
 
 from config.config import Config
-from redis_client import GetRedisClient
+from utils.redis_client import GetRedisClient
 
 
 class Scraper(object):
