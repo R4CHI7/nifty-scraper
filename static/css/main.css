@@ -8,6 +8,7 @@ body {
     transition: 0.3s;
     width: 50%;
     background-color: #ffffff;
+    margin-bottom: 10px;
 }
 
 /* On mouse-over, add a deeper shadow */

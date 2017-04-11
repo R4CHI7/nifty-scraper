@@ -20,8 +20,10 @@ class Server(object):
             config = Config().getConfig()
             r = GetRedisClient(config)
             data = r.lrange(config.get('app', 'redis_key'), 0, -1)
+            # Convert the JSON strings to objects.
             data = map(json.loads, data)
             for entry in data:
+                # arrowClass and color are used for the frontend.
                 arrowClass = ''
                 color = ''
                 if entry['change'] > 0.0:
@@ -32,6 +34,8 @@ class Server(object):
                     color = 'red'
                 entry['arrowClass'] = arrowClass
                 entry['color'] = color
+
+            # Get the template and render using the data.
             template = env.get_template('index.html')
             return template.render(data=data)
         except Exception as e:
