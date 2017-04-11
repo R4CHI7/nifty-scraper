@@ -45,7 +45,7 @@ class Scraper(object):
             finally:
                 time.sleep(self.interval)
 
-    def isMarketOpen():
+    def isMarketOpen(self):
         ist = timezone('Asia/Kolkata')
         istTime = datetime.datetime.now(ist).time()
         openTime = datetime.time(9, 15, 0)

@@ -15,7 +15,7 @@ class App(object):
     def start(self):
         # Start the background scraper.
         cherrypy.log('Starting background scraper..')
-        # self.scraper.start()
+        self.scraper.start()
 
         # Start the server.
         conf = {
